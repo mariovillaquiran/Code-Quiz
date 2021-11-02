@@ -1,21 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Quiz</title>
 
-<!-- Link to stylesheet -->
-<link rel="stylesheet" href="./style.css">
-</head>
-<body>
- 
-    <h1>Coding Quiz Challenge</h1> 
-    Try to answer the following code-related questions within the time limit. <br>
-    Keep in mind that incorrect answers will penalize your score/time by ten seconds! 
+    <!-- Link to stylesheet -->
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <!-- Start screen -->
+    <div id="start-screen" class="start">
+      <h1>Coding Quiz Challenge</h1>
+      <p>
+        Try to answer the following code-related questions within the time
+        limit. Keep in mind that incorrect answers will penalize your score/time
+        by ten seconds!
+      </p>
+      <!-- Start button -->
+      <button id="start">Start Quiz</button>
+    </div>
+    <!-- Questions go here -->
+<div id="questions" class="hide">
+<h2 id="question-title"> Hi </h2>
+<div id="choices" class="choices"> Hi </div>
+
+
+</div>
 
 
 
-</body>
+    <!-- End page goes here -->
+    <div id="end-screen" class="hide">
+    <h1>All Done!</h1>
+
+    <p>Your Final Score is:</p>
+    <p>Enter initials:</p>
+    <button id="submit">Submit</button>
+
+    <!-- Link to JS -->
+    <script src="./assets/script.js"></script>
+  </body>
 </html>
