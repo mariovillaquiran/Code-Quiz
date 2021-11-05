@@ -26,5 +26,13 @@ function check () {
 }
 
 function end () {
-    
+        //stop the timer
+        clearInterval(timer);
+
+            //hide the questions
+    document.querySelector("#questionselement").setAttribute("class","hide");
+
+    //show the end screen
+    document.querySelector("#end-screen").removeAttribute("class");
 }
+startButton.addEventListener("click", initiateQuiz);

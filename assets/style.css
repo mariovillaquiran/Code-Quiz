@@ -25,3 +25,15 @@ button {
 button:hover {
     background-color: purple;
 }
+/*Class for the question options*/
+.choices button {
+    display: block;
+  }
+  
+  /*styling for the scores*/
+.allscores {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  
