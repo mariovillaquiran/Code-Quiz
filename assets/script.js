@@ -17,7 +17,11 @@ timerelement.textContent = time
 displayquestion()
 }
 function displayquestion () {
-    array.forEach(element => {
+    var currentquestion = questions[currentquestionindex]
+    var titleelement = document.getElementById("question-title")
+    titleelement.textContent = currentquestion.title
+    choiceselement.innerHTML = ""
+    currentquestion.forEach(element => {
         
     });
 }
@@ -35,4 +39,5 @@ function end () {
     //show the end screen
     document.querySelector("#end-screen").removeAttribute("class");
 }
-startButton.addEventListener("click", initiateQuiz);
+startbutton.onclick = start
+
