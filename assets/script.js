@@ -7,6 +7,8 @@ var timerelement = document.getElementById ("time")
 var choiceselement = document.getElementById ("choices")
 var startbutton = document.getElementById("start")
 var submitbutton = document.getElementById("submit")
+var feedbackelement = document.getElementById("feedback")
+var initialselement = doecument.getElementById ("initials")
 
 function start (){
 var startscreenelement = document.getElementById("start-screen")
@@ -21,23 +23,72 @@ function displayquestion () {
     var titleelement = document.getElementById("question-title")
     titleelement.textContent = currentquestion.title
     choiceselement.innerHTML = ""
-    currentquestion.forEach(element => {
-        
+    currentquestion.choices.forEach(function(choice, i) {
+     var choicething = document.createElement("button")   
+     choicething.setAttribute("class","choice")
+     choicething.setAttribute("value", choice)
+     choicething.textContent = i + 1 + ". " + choice
+     choicething.onclick = check
+     choiceselement.appendChild(choicething)
     });
 }
 function check () {
-
+if (this.value !== questions[currentquestionindex].answer) {
+time -=15
+if (time <=0) {
+    time = 0
+}
+timerelement.textContent = time
+feedbackelement.textContent = "Bad"
+} else {
+    //add feedback element here with text content
+feedbackelement.textContent = "Great"
+}
+feedbackelement.setAttribute("class", "feedback")
+setTimeout(function(){
+    feedbackelement.setAttribute("class","feedback hide")
+},500)
+currentquestionindex++ 
+if (currentquestionindex == questions.length) {
+  end ()  
+} else {
+    displayquestion()
+}
 }
 
 function end () {
         //stop the timer
         clearInterval(timer);
+    //show the end screen
+   var endscreenelement = document.getElementById("end-screen")
+    endscreenelement.removeAttribute("class");
+    var finalscoreelement = document.getElementById("final-score")
+    finalscoreelement.textContent = time
 
             //hide the questions
-    document.querySelector("#questionselement").setAttribute("class","hide");
+questionselement.setAttribute("class","hide");
 
-    //show the end screen
-    document.querySelector("#end-screen").removeAttribute("class");
 }
-startbutton.onclick = start
+function clock (){
+ time--
+ timerelement.textContent = time
+ if (time <=0) {
+     end()
+ }
+}
+function savehighscore (){
+    var initials = initialselement.value.trim()
+    if (initials !== "") {
+    var highscores = JSON.parse(window.localStorage.getItem("highscores")) || []  
+    var newscore = {
+        score: time,
+        initials:initials
+    }
+     highscores.push(newscore)
+     window.localStorage.setItem("highscores", JSON.stringify(highscores))
+    window.location.href = "newscore.html"
+    }
+}
 
+startbutton.onclick = start
+submitbutton.onclick = savehighscore
