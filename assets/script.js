@@ -8,7 +8,7 @@ var choiceselement = document.getElementById ("choices")
 var startbutton = document.getElementById("start")
 var submitbutton = document.getElementById("submit")
 var feedbackelement = document.getElementById("feedback")
-var initialselement = doecument.getElementById ("initials")
+var initialselement = document.getElementById ("initials")
 
 function start (){
 var startscreenelement = document.getElementById("start-screen")
