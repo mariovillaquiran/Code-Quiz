@@ -27,6 +27,7 @@ THEN I can save my initials and score
 
 ## Mock-Up
 
+<img width="1363" alt="Screen Shot 2021-11-14 at 11 30 41 AM" src="https://user-images.githubusercontent.com/90975246/141689721-f5a46ca4-0902-4b2c-bf62-71bd87b2a0a7.png">
 
 # Lincense
 
